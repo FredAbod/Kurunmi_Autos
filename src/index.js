@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require('path');
 const app = express();
 const cors = require('cors');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const morgan = require("morgan");
 const userRouter = require("./routes/user.routes.js");
 const adminRouter = require("./routes/admin.routes.js");
@@ -18,7 +18,7 @@ const port = process.env.PORT || 3400;
 app.use(cors());
 
 // Use helmet middleware to set security headers
-app.use(helmet());
+// app.use(helmet());
 
 // You can also customize CORS options
 app.use(cors({
