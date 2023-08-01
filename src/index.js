@@ -14,7 +14,7 @@ connectDB();
 app.use(express.json());
 app.use(morgan("dev"));
 const port = process.env.PORT || 3400;
-const httpsPort = process.env.HTTPSPORT || 3400;
+// const httpsPort = process.env.HTTPSPORT || 3400;
 app.use(cors());
 
 // Use helmet middleware to set security headers
@@ -37,16 +37,16 @@ app.get("/", (req, res) => {
 });
 
 // Read SSL certificate and key files
-const options = {
-    key: fs.readFileSync(path.join(__dirname, 'localhost-key.pem')),
-    cert: fs.readFileSync(path.join(__dirname, 'localhost.pem')),
-};
-// Create HTTPS server
-const server = https.createServer(options, app);
+// const options = {
+//     key: fs.readFileSync(path.join(__dirname, 'localhost-key.pem')),
+//     cert: fs.readFileSync(path.join(__dirname, 'localhost.pem')),
+// };
+// // Create HTTPS server
+// const server = https.createServer(options, app);
 
 app.listen(port, () => {
   console.log(`app listening on http://localhost:${port}`);
 });
-server.listen(httpsPort, () => {
-  console.log(`app listening on https://localhost:${httpsPort}`);
-});
+// server.listen(httpsPort, () => {
+//   console.log(`app listening on https://localhost:${httpsPort}`);
+// });
